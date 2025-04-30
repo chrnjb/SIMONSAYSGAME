@@ -419,7 +419,7 @@ function checkAns(idx) {
         if(userSeq.length === gameSeq.length) {
             // Stop timer when level is cleared
             stopTimer();
-            setTimeout(levelUp, 1000);
+            setTimeout(levelUp, 100);
         }
     } else {
         gameOver("Wrong pattern!");
