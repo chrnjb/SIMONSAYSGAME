@@ -1,0 +1,661 @@
+/* body {
+    background-color: blanchedalmond;
+    text-align: center;
+}
+
+.btn {
+    height: 200px;
+    width: 200px;
+    border-radius: 20%;
+    border: 10px solid black;
+    margin: 3rem;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+}
+
+.yellow {
+    background-color: rgb(253, 218, 44);
+}
+
+.red {
+    background-color: rgb(255, 0, 0);
+}   
+
+.green {    
+    background-color: rgb(133, 232, 46);
+}   
+
+.cyan {
+    background-color: rgb(40, 237, 237);
+}       
+
+.flash {
+    background-color: whitesmoke;
+}
+
+.userflash {
+    background-color: rgb(0, 0, 0);
+} */
+
+
+/* Base styling */
+/* Base styling */
+
+/* Base styling */
+
+/* Base styling */
+/* Base styling */
+/* Base styling */
+/* Base styling */
+/* Base styling */
+body {
+  background-color: #f0f5f9;
+  color: #1e2022;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.game-container {
+  max-width: 100%;
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(240, 245, 249, 0.8);
+  position: relative;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 3.5rem;
+  letter-spacing: 3px;
+  margin-bottom: 0.5rem;
+  color: #52616b;
+  font-weight: 700;
+  z-index: 10;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background-color: rgba(201, 214, 223, 0.8);
+  color: #52616b;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 10;
+  backdrop-filter: blur(5px);
+}
+
+/* Updated Vertical Name Display */
+.vertical-name-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 80px; /* Increased width */
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(82, 97, 107, 0.05); /* Light background */
+  padding: 0 5px;
+}
+
+.vertical-name {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 7rem; /* Much bigger text */
+  font-weight: 900;
+  letter-spacing: 10px; /* Increased spacing */
+  color: rgba(82, 97, 107, 0.15); /* Slightly more visible */
+  text-shadow: 3px 3px 6px rgba(0,0,0,0.15); /* Enhanced shadow */
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, rgba(82, 97, 107, 0.8), rgba(82, 97, 107, 0.2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fade-in 1s ease-out;
+  text-transform: uppercase; /* Always uppercase */
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: rotate(180deg) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(180deg) translateY(0);
+  }
+}
+
+/* Player name section */
+.player-section {
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 500px;
+  z-index: 10;
+}
+
+.player-name-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+#player-name {
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  border: 2px solid #c9d6df;
+  background-color: #ffffff;
+  color: #52616b;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  outline: none;
+  width: 200px;
+  text-align: center;
+}
+
+#player-name:focus {
+  border-color: #52616b;
+}
+
+.save-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  background-color: #52616b;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #414c54;
+}
+
+.player-display {
+  font-size: 1.25rem;
+  color: #52616b;
+  margin-top: 0.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Button container styling */
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem 0;
+  max-width: 700px;
+  z-index: 10;
+}
+
+.line-one, .line-two {
+  display: flex;
+  gap: 2rem;
+}
+
+/* Button styling - More intuitive color boxes */
+.btn {
+  height: 160px;
+  width: 160px;
+  border-radius: 20px;
+  border: none;
+  margin: 0;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+  bottom: 10%;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15%;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Button colors - more vivid palette */
+.yellow {
+  background-color: #ffcc29;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
+.red {
+  background-color: #ff5c5c;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
+.green {
+  background-color: #25c685;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
+.cyan {
+  background-color: #46b3e6;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
+}
+
+/* Button effects */
+.flash {
+  background-color: white !important;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.9);
+}
+
+.userflash {
+  opacity: 0.6;
+  transform: scale(0.95);
+}
+
+.gameover {
+  opacity: 0.4;
+}
+
+/* Start button */
+.start-btn {
+  padding: 1rem 2.5rem;
+  border-radius: 12px;
+  border: none;
+  background-color: #52616b;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.start-btn:hover {
+  background-color: #414c54;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.start-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Enhanced Timer styling */
+.timer-container {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  z-index: 10;
+  background-color: rgba(201, 214, 223, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.timer-display {
+  font-size: 10rem;
+  font-weight: 700;
+  color: #52616b;
+  font-family: 'Digital', 'Roboto Mono', monospace;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  min-width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.timer-label {
+  font-size: 1.5rem;
+  color: #52616b;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Date and time display */
+.datetime-display {
+  font-size: 1.2rem;
+  color: #52616b;
+  margin-top: 15px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 10px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Timer animation when time is running low */
+.timer-warning {
+  color: #ff5c5c;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Enhanced Artistic visual effect across the page */
+.artistic-effect {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.wave {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  transform-origin: center;
+}
+
+.wave1 {
+  background: linear-gradient(45deg, #ff5c5c, #ffcc29);
+  animation: wave-animation 20s infinite linear, color-shift1 20s infinite alternate;
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+}
+
+.wave2 {
+  background: linear-gradient(-45deg, #25c685, #46b3e6);
+  animation: wave-animation 25s infinite linear reverse, color-shift2 18s infinite alternate;
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+}
+
+.wave3 {
+  background: linear-gradient(90deg, #ffcc29, #46b3e6);
+  animation: wave-animation 22s infinite linear, color-shift3 22s infinite alternate;
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+}
+
+.wave4 {
+  background: radial-gradient(circle at 50% 50%, #ff5c5c, #25c685);
+  animation: wave-animation 28s infinite linear reverse, color-shift4 25s infinite alternate;
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+}
+
+@keyframes wave-animation {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+@keyframes color-shift1 {
+  0% {
+    background: linear-gradient(45deg, #ff5c5c, #ffcc29);
+  }
+  100% {
+    background: linear-gradient(45deg, #ffcc29, #46b3e6);
+  }
+}
+
+@keyframes color-shift2 {
+  0% {
+    background: linear-gradient(-45deg, #25c685, #46b3e6);
+  }
+  100% {
+    background: linear-gradient(-45deg, #ff5c5c, #25c685);
+  }
+}
+
+@keyframes color-shift3 {
+  0% {
+    background: linear-gradient(90deg, #ffcc29, #46b3e6);
+  }
+  100% {
+    background: linear-gradient(90deg, #25c685, #ff5c5c);
+  }
+}
+
+@keyframes color-shift4 {
+  0% {
+    background: radial-gradient(circle at 50% 50%, #ff5c5c, #25c685);
+  }
+  100% {
+    background: radial-gradient(circle at 50% 50%, #ffcc29, #46b3e6);
+  }
+}
+
+/* Sound visualization effect that activates during gameplay */
+.sound-bar {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  background-color: #52616b;
+  opacity: 0.5;
+  border-radius: 2px;
+  transform-origin: bottom;
+  z-index: 1;
+}
+
+@keyframes sound-bar-animation {
+  0% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+  100% {
+    transform: scaleY(0.3);
+  }
+}
+
+/* Media queries for responsive design */
+@media (max-width: 1200px) {
+  .timer-container {
+    position: static;
+    transform: none;
+    margin: 2rem 0;
+  }
+  
+  .timer-display {
+    font-size: 7rem;
+    padding: 15px 25px;
+  }
+  
+  .vertical-name-container {
+    width: 60px;
+  }
+  
+  .vertical-name {
+    font-size: 5rem;
+    letter-spacing: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .btn {
+    height: 130px;
+    width: 130px;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  .timer-display {
+    font-size: 6rem;
+    padding: 10px 20px;
+  }
+  
+  .btn-container {
+    gap: 1.5rem;
+  }
+  
+  .vertical-name-container {
+    width: 50px;
+  }
+  
+  .vertical-name {
+    font-size: 4rem;
+    letter-spacing: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .btn {
+    height: 100px;
+    width: 100px;
+    border-radius: 15px;
+  }
+  
+  .btn-container {
+    gap: 1rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.2rem;
+    padding: 8px 12px;
+  }
+  
+  .player-name-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  #player-name {
+    width: 80%;
+  }
+  
+  .start-btn {
+    padding: 0.75rem 2rem;
+    font-size: 1.1rem;
+  }
+  
+  .timer-display {
+    font-size: 4.5rem;
+    padding: 8px 15px;
+  }
+  
+  .timer-label {
+    font-size: 1.2rem;
+  }
+  
+  .datetime-display {
+    font-size: 1rem;
+    padding: 8px 12px;
+  }
+  
+  .vertical-name-container {
+    width: 40px;
+  }
+  
+  .vertical-name {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+}

@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says Game</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <h1>SIMON SAYS GAME</h1>
+    <h2>Press any key to start the game</h2>
+
+    <div class="btn-container">
+        <div class="line-one">
+            <div class="btn red" type="button" id="red">1</div>
+            <div class="btn yellow" type="button" id="yellow">2</div>
+        </div>
+        <div class="line-two">
+            <div class="btn green" type="button" id="green">3</div>
+            <div class="btn cyan" type="button" id="cyan">4</div>
+        </div>   
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simon Says Game</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Artistic Effect - Now covers the entire page -->
+        <div class="artistic-effect">
+            <div class="wave wave1"></div>
+            <div class="wave wave2"></div>
+            <div class="wave wave3"></div>
+            <div class="wave wave4"></div>
+            <!-- Sound bars will be added dynamically -->
+        </div>
+        
+        <!-- Vertical player name display -->
+        <div class="vertical-name-container">
+            <div id="vertical-player-name" class="vertical-name">PLAYER</div>
+        </div>
+        
+        <h1>SIMON SAYS</h1>
+        
+        <div class="player-section">
+            <div class="player-name-container">
+                <input type="text" id="player-name" placeholder="Enter your name" maxlength="15">
+                <button class="save-btn" id="save-name">Save</button>
+            </div>
+            <div class="player-display">
+                <span id="current-player">Player</span>'s Game
+            </div>
+        </div>
+        
+        <h2 id="level-title">Press the Start button to play</h2>
+        
+        <div class="btn-container">
+            <div class="line-one">
+                <div class="btn red" type="button" id="red"></div>
+                <div class="btn yellow" type="button" id="yellow"></div>
+            </div>
+            <div class="line-two">
+                <div class="btn green" type="button" id="green"></div>
+                <div class="btn cyan" type="button" id="cyan"></div>
+            </div>   
+        </div>
+        
+        <button class="start-btn" id="start-game">Start Game</button>
+        
+        <!-- Enhanced Timer Display with Date & Time -->
+        <div class="timer-container">
+            <div class="timer-display" id="timer">15</div>
+            <div class="timer-label">SECONDS</div>
+            <div class="datetime-display" id="datetime">Date & Time</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
