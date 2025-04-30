@@ -359,7 +359,7 @@ function playSequence(sequence) {
         const btn = document.querySelector(`.${color}`);
         gameFlash(btn);
         i++;
-    }, 900);
+    }, 600);
 }
 
 function startTimer() {
